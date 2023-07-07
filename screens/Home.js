@@ -5,7 +5,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Home = ({navigation}) => {
     return (
-
+    <Text></Text>
     );
 };
 

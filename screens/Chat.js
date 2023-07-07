@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
+    const [received, setReceived] = useState(false);
 
     useEffect(() => {
         setMessages([
@@ -30,8 +31,9 @@ const Chat = () => {
         setMessages((previousMessages) =>
             GiftedChat.append(previousMessages, messages),
         );
+        setReceived(true);
         console.log('MESSAG ETYPE', messages)
-        axios.post('https://aa88-130-211-245-4.ngrok.io/api', messages[0].text, {
+        axios.post('https://b2ca-3-253-78-43.ngrok.io/api', messages[0].text, {
             headers: {
                 'Content-Type': 'text/plain'
             }
@@ -41,6 +43,7 @@ const Chat = () => {
                 setMessages((previousMessages) =>
                     GiftedChat.append(previousMessages, response.data),
                 );
+                setReceived(false)
             })
             .catch(error => {
                 console.error(error);
@@ -97,6 +100,7 @@ const Chat = () => {
             renderBubble={renderBubble}
             alwaysShowSend
             renderSend={renderSend}
+            disableComposer={received}
             scrollToBottom
             scrollToBottomComponent={scrollToBottomComponent}
         />
