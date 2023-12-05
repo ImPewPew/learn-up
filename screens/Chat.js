@@ -8,6 +8,7 @@ import axios from 'axios';
 const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [received, setReceived] = useState(false);
+    const [apiUrl, setApiUrl] = useState('https://1ec7-120-28-251-27.ngrok.io'); // Initial URL
 
     useEffect(() => {
         setMessages([
@@ -33,7 +34,7 @@ const Chat = () => {
         );
         setReceived(true);
         console.log('MESSAG ETYPE', messages)
-        axios.post('https://b2ca-3-253-78-43.ngrok.io/api', messages[0].text, {
+        axios.post(`${apiUrl}/api`, messages[0].text, {
             headers: {
                 'Content-Type': 'text/plain'
             }
@@ -49,7 +50,7 @@ const Chat = () => {
                 console.error(error);
             });
 
-    }, []);
+    }, [apiUrl]);
 
     const renderSend = (props) => {
         return (
