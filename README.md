@@ -54,21 +54,7 @@ npx react-native run-android
 # or
 npx react-native run-ios
 ```
----
-##  🚀 Project Structure
 
-```bash
-learn-up/
-├── android/                 # Native Android config
-├── ios/                     # Native iOS config
-├── assets/                 # App images & media
-├── components/             # UI components (ChatBubble, etc.)
-├── screens/                # App screens (Chat, Lessons)
-├── data/                   # Java lesson data & scripts
-├── utils/                  # Chatbot logic & helpers
-├── App.js                  # Entry point
-└── package.json            # Dependencies & scripts
-```
 
 ---
 ## 🎯 Features
